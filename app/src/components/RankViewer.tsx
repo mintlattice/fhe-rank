@@ -150,11 +150,19 @@ export function RankViewer() {
         <div className="encrypted-grid">
           <div className="encrypted-item">
             <label>Encrypted Score Handle</label>
-            <code className="encrypted-value">{(encryptedScore as string).slice(0, 16)}...</code>
+            <code className="encrypted-value">
+              {typeof encryptedScore === 'string' && encryptedScore.length >= 16
+                ? `${encryptedScore.slice(0, 16)}...`
+                : 'Loading...'}
+            </code>
           </div>
           <div className="encrypted-item">
             <label>Encrypted Rank Handle</label>
-            <code className="encrypted-value">{(encryptedRank as string).slice(0, 16)}...</code>
+            <code className="encrypted-value">
+              {typeof encryptedRank === 'string' && encryptedRank.length >= 16
+                ? `${encryptedRank.slice(0, 16)}...`
+                : 'Loading...'}
+            </code>
           </div>
         </div>
 

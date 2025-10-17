@@ -1,5 +1,5 @@
 // Single contract address (no env variables). Replace with deployed Sepolia address.
-export const CONTRACT_ADDRESS = '0x0000000000000000000000000000000000000000' as `0x${string}`;
+export const CONTRACT_ADDRESS = '0x3aF5D09f7905751970d98e4d01A83bADC07A1d02' as `0x${string}`;
 
 export const CONTRACT_ABI = [
   {
