@@ -1,0 +1,132 @@
+.rank-viewer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.rank-card {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.rank-card.empty {
+  align-items: center;
+  text-align: center;
+}
+
+.rank-card h2 {
+  margin: 0;
+  font-size: 1.75rem;
+  color: #0f172a;
+}
+
+.rank-description {
+  margin: 0;
+  color: #475569;
+  line-height: 1.6;
+}
+
+.rank-alert {
+  background: #fee2e2;
+  color: #b91c1c;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+}
+
+.encrypted-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.encrypted-item label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.encrypted-value {
+  display: block;
+  background: #0f172a;
+  color: #e2e8f0;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.75rem;
+  word-break: break-all;
+}
+
+.decrypted-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.decrypted-item {
+  background: #eff6ff;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.decrypted-label {
+  display: block;
+  color: #1d4ed8;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.decrypted-number {
+  font-size: 1.75rem;
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.decrypted-placeholder {
+  background: #f8fafc;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  color: #475569;
+  text-align: center;
+}
+
+.decrypt-button {
+  align-self: flex-start;
+  background: #1d4ed8;
+  color: white;
+  padding: 0.85rem 1.75rem;
+  border: none;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.decrypt-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.rank-status {
+  background: #f1f5f9;
+  color: #0f172a;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+}
+
+.rank-message {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  text-align: center;
+  color: #475569;
+}
+
+@media (max-width: 768px) {
+  .rank-card {
+    padding: 1.5rem;
+  }
+}
