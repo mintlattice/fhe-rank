@@ -5,7 +5,7 @@ import { Header } from './Header';
 import { ScoreSubmission } from './ScoreSubmission';
 import { RankViewer } from './RankViewer';
 import { TeacherPanel } from './TeacherPanel';
-import { CONTRACT_ADDRESS, CONTRACT_ABI, IS_PLACEHOLDER_ADDRESS } from '../config/contracts';
+import { CONTRACT_ADDRESS, CONTRACT_ABI } from '../config/contracts';
 import '../styles/RankingApp.css';
 
 type TabKey = 'submit' | 'rank' | 'teacher';
@@ -19,7 +19,7 @@ export function RankingApp() {
     abi: CONTRACT_ABI,
     functionName: 'owner',
     query: {
-      enabled: Boolean(!IS_PLACEHOLDER_ADDRESS),
+      enabled: true,
     },
   });
 

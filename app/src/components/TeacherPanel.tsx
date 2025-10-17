@@ -4,7 +4,7 @@ import { useAccount, useReadContract } from 'wagmi';
 
 import { useZamaInstance } from '../hooks/useZamaInstance';
 import { useEthersSigner } from '../hooks/useEthersSigner';
-import { CONTRACT_ADDRESS, CONTRACT_ABI, IS_PLACEHOLDER_ADDRESS } from '../config/contracts';
+import { CONTRACT_ADDRESS, CONTRACT_ABI } from '../config/contracts';
 import '../styles/TeacherPanel.css';
 
 type Entry = {
@@ -26,15 +26,11 @@ export function TeacherPanel() {
     abi: CONTRACT_ABI,
     functionName: 'getStudents',
     query: {
-      enabled: !IS_PLACEHOLDER_ADDRESS,
+      enabled: true,
     },
   });
 
   const canSubmit = useMemo(() => {
-    if (IS_PLACEHOLDER_ADDRESS) {
-      return false;
-    }
-
     if (!instance || !address || !signerPromise) {
       return false;
     }
@@ -60,11 +56,6 @@ export function TeacherPanel() {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
-    if (IS_PLACEHOLDER_ADDRESS) {
-      setFeedback('Contract address is not configured. Deploy and set VITE_ENCRYPTED_RANKING_ADDRESS.');
-      return;
-    }
 
     if (!instance || !address || !signerPromise) {
       setFeedback('Missing encryption context or wallet connection.');
@@ -134,14 +125,6 @@ export function TeacherPanel() {
           <span className="student-count">{(registeredStudents as string[]).length} students registered</span>
         )}
       </div>
-
-      {IS_PLACEHOLDER_ADDRESS && (
-        <div className="panel-alert">
-          Contract address placeholder detected. Deploy the contract to Sepolia and set
-          <code style={{ marginLeft: '0.35rem' }}>VITE_ENCRYPTED_RANKING_ADDRESS</code>
-          before uploading scores.
-        </div>
-      )}
 
       {zamaError && (
         <div className="panel-alert">{zamaError}</div>

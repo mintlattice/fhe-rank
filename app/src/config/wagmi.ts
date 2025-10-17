@@ -1,13 +1,12 @@
 import { getDefaultConfig } from '@rainbow-me/rainbowkit';
 import { sepolia } from 'wagmi/chains';
 
-const projectId = (import.meta.env.VITE_WALLETCONNECT_PROJECT_ID ?? '').trim();
-
-export const RAINBOW_PROJECT_ID = projectId;
+// No environment variables in frontend
+export const RAINBOW_PROJECT_ID = '00000000000000000000000000000000';
 
 export const config = getDefaultConfig({
   appName: 'Encrypted Ranking Portal',
-  projectId: '00000000000000000000000000000000',
+  projectId: RAINBOW_PROJECT_ID,
   chains: [sepolia],
   ssr: false,
 });

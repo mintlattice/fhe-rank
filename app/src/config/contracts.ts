@@ -1,12 +1,5 @@
-const DEFAULT_ADDRESS = '0x3aF5D09f7905751970d98e4d01A83bADC07A1d02' as const;
-
-const ENV_ADDRESS = (import.meta.env.VITE_ENCRYPTED_RANKING_ADDRESS ?? '').trim();
-
-export const CONTRACT_ADDRESS = (ENV_ADDRESS && ENV_ADDRESS !== '')
-  ? (ENV_ADDRESS as `0x${string}`)
-  : DEFAULT_ADDRESS;
-
-export const IS_PLACEHOLDER_ADDRESS = CONTRACT_ADDRESS === DEFAULT_ADDRESS;
+// Single contract address (no env variables). Replace with deployed Sepolia address.
+export const CONTRACT_ADDRESS = '0x0000000000000000000000000000000000000000' as `0x${string}`;
 
 export const CONTRACT_ABI = [
   {

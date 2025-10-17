@@ -4,7 +4,7 @@ import { useAccount } from 'wagmi';
 
 import { useZamaInstance } from '../hooks/useZamaInstance';
 import { useEthersSigner } from '../hooks/useEthersSigner';
-import { CONTRACT_ADDRESS, CONTRACT_ABI, IS_PLACEHOLDER_ADDRESS } from '../config/contracts';
+import { CONTRACT_ADDRESS, CONTRACT_ABI } from '../config/contracts';
 import '../styles/ScoreSubmission.css';
 
 export function ScoreSubmission() {
@@ -21,11 +21,6 @@ export function ScoreSubmission() {
 
     if (!isConnected || !address) {
       setStatus('Connect your wallet to submit a score.');
-      return;
-    }
-
-    if (IS_PLACEHOLDER_ADDRESS) {
-      setStatus('Contract address is not configured. Deploy to Sepolia and set VITE_ENCRYPTED_RANKING_ADDRESS.');
       return;
     }
 

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useAccount, useReadContract } from 'wagmi';
 
-import { CONTRACT_ADDRESS, CONTRACT_ABI, IS_PLACEHOLDER_ADDRESS } from '../config/contracts';
+import { CONTRACT_ADDRESS, CONTRACT_ABI } from '../config/contracts';
 import { useZamaInstance } from '../hooks/useZamaInstance';
 import { useEthersSigner } from '../hooks/useEthersSigner';
 import '../styles/RankViewer.css';
@@ -26,7 +26,7 @@ export function RankViewer() {
     functionName: 'hasScore',
     args: address ? [address] : undefined,
     query: {
-      enabled: Boolean(address && !IS_PLACEHOLDER_ADDRESS),
+      enabled: Boolean(address),
     },
   });
 
@@ -36,7 +36,7 @@ export function RankViewer() {
     functionName: 'getEncryptedScore',
     args: address && hasScore ? [address] : undefined,
     query: {
-      enabled: Boolean(address && hasScore && !IS_PLACEHOLDER_ADDRESS),
+      enabled: Boolean(address && hasScore),
     },
   });
 
@@ -46,7 +46,7 @@ export function RankViewer() {
     functionName: 'getEncryptedRank',
     args: address && hasScore ? [address] : undefined,
     query: {
-      enabled: Boolean(address && hasScore && !IS_PLACEHOLDER_ADDRESS),
+      enabled: Boolean(address && hasScore),
     },
   });
 
@@ -117,17 +117,6 @@ export function RankViewer() {
       setIsDecrypting(false);
     }
   };
-
-  if (IS_PLACEHOLDER_ADDRESS) {
-    return (
-      <div className="rank-viewer">
-        <div className="rank-card empty">
-          <h2>Contract Address Missing</h2>
-          <p>Deploy the EncryptedRanking contract and set VITE_ENCRYPTED_RANKING_ADDRESS to continue.</p>
-        </div>
-      </div>
-    );
-  }
 
   if (!address) {
     return (
