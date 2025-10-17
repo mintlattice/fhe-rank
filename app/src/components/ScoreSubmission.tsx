@@ -80,14 +80,14 @@ export function ScoreSubmission() {
       {zamaError && <div className="submission-alert">{zamaError}</div>}
 
       <form className="submission-form" onSubmit={handleSubmit}>
-        <label className="submission-label">Score (0 - 4,294,967,295)</label>
+
         <input
           type="number"
           value={score}
           min="0"
           max="4294967295"
           onChange={event => setScore(event.target.value)}
-          placeholder="Enter your encrypted score"
+          placeholder="Enter your score"
           className="submission-input"
           required
         />
