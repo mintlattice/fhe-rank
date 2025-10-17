@@ -7,7 +7,7 @@ export const RAINBOW_PROJECT_ID = projectId;
 
 export const config = getDefaultConfig({
   appName: 'Encrypted Ranking Portal',
-  projectId: projectId || '00000000000000000000000000000000',
+  projectId: '00000000000000000000000000000000',
   chains: [sepolia],
   ssr: false,
 });
