@@ -3,11 +3,11 @@ pragma solidity ^0.8.27;
 
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 import {FHE, ebool, euint32, externalEuint32} from "@fhevm/solidity/lib/FHE.sol";
-import {SepoliaConfig} from "@fhevm/solidity/config/ZamaConfig.sol";
+import {ZamaEthereumConfig} from "@fhevm/solidity/config/ZamaConfig.sol";
 
 /// @title EncryptedRanking
 /// @notice Manages encrypted student scores and rankings using Zama FHE
-contract EncryptedRanking is SepoliaConfig, Ownable {
+contract EncryptedRanking is ZamaEthereumConfig, Ownable {
     struct StudentRecord {
         euint32 score;
         euint32 rank;
